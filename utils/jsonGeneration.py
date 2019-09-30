@@ -167,8 +167,16 @@ def main(input, output):
     save_json_file(output, spec_dict_list)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="convert txt file to json file")
-    parser.add_argument("--input", required="true")
-    parser.add_argument("--output", required="true")
-    args = parser.parse_args()
-    main(args.input, args.output)
+#    parser = argparse.ArgumentParser(description="convert txt file to json file")
+#    parser.add_argument("--input", required="true")
+#    parser.add_argument("--output", required="true")
+#    args = parser.parse_args()
+#    main(args.input, args.output)
+    
+    filePath = 'C:\\Users\\EHOUQII\\Hackathon\\3gpp_search_engine-master\\doc'
+    inputFileNames = os.listdir(filePath)
+    for i,fileName in enumerate(inputFileNames):
+        if fileName.endswith('txt'):
+            input = filePath + "\\" + fileName
+            output= filePath + "\\" + fileName.split(".txt")[0] + ".json"
+            main(input, output)
